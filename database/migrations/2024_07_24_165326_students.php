@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id('id_student');
             $table->boolean('state_student');
             $table->integer('document_number');
+
+            $table->unsignedInteger('id_register');
         });
     }
 

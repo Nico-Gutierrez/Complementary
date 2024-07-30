@@ -11,11 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('inscription', function(Blueprint $table){
+        Schema::create('inscriptions', function(Blueprint $table){
             $table->id('id_register');
             $table->string('state_register');
             $table->date('date_register');
             
+            $table->unsignedBigInteger('id_student');
+            $table->unsignedBigInteger('id_course');
+            
+
+            $table->foreign('id_student')
+              ->references('id_student')
+              ->on('students');
+
+            $table->foreign('id_course')
+              ->references('id_course')
+              ->on('courses');
+
+
     });
 }
     /**
@@ -23,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('inscription');
+        Schema::dropIfExists('inscriptions');
     }
 };
