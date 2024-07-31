@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Schedules extends Model
 {
     use HasFactory;
+
+    public function inscriptions(){
+        return $this->belongsTo('App\Models\Inscriptions');
+    }
 }

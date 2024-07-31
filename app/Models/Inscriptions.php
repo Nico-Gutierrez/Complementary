@@ -19,4 +19,8 @@ class Inscriptions extends Model
     public function courses(){
         return $this->belongsTo('App\Models\Courses');
     }
+
+    public function schedules(){
+        return $this->belongsTo('App\Models\Schedules');
+    }
 }
