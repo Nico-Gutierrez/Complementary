@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->boolean('permissions');
             $table->integer('document_number')->unique();
-            $table->timestamp('date_birth');
+            $table->date('date_birth');
             $table->string('address');
 
             $table->unsignedBigInteger('country_id');
