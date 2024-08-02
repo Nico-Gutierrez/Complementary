@@ -17,6 +17,12 @@ return new class extends Migration
             $table->integer('document_number');
 
             $table->unsignedInteger('id_register');
+            $table->unsignedBigInteger('person_id');
+
+
+            $table->foreign('person_id')
+                  ->references('id_person')
+                  ->on('peoples');
         });
     }
 

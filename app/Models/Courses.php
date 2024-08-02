@@ -16,13 +16,13 @@ class Courses extends Model
         return $this->hasMany('App\Models\Inscriptios');
     }
 
-    //public function categories(){
-    //    return $this->hasMany('App\Models\Categories');
-    //}
-
     protected $table = 'courses';
 
     public function categories(){
         return $this->hasOne(categories::class, 'categorie_id', 'id_categorie');
+    }
+
+    public function requests(){
+        return $this->hasOne(Requests::class, 'course_id', 'id_course');
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_student');
             $table->unsignedBigInteger('id_course');
             $table->unsignedBigInteger('id_schedules');
+            $table->unsignedBigInteger('person_id');
             
 
             $table->foreign('id_student')
@@ -29,9 +30,15 @@ return new class extends Migration
               ->references('id_course')
               ->on('courses');
 
-              $table->foreign('id_schedules')
+            $table->foreign('id_schedules')
               ->references('id_schedules')
               ->on('schedules');
+
+
+            $table->foreign('person_id')
+              ->references('id_person')
+              ->on('peoples');
+
 
 
     });

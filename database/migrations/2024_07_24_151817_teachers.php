@@ -16,6 +16,12 @@ return new class extends Migration
             $table->string('specialization');
             $table->string('years_experience');
 
+            $table->unsignedBigInteger('person_id'); // Clave foránea
+
+            $table->foreign('person_id')
+                  ->references('id_person')
+                  ->on('peoples');
+
         });
     }
 

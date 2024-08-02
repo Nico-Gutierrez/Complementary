@@ -15,6 +15,17 @@ return new class extends Migration
             $table->id('id_schedules');
             $table->date('start_date');
             $table->date('end_date');
+
+            $table->unsignedBigInteger('coordination_id');
+            $table->unsignedBigInteger('request_id');  // Clave foránea
+
+            $table->foreign('coordination_id')
+                  ->references('id_coordination')
+                  ->on('coordinations');
+
+            $table->foreign('request_id')
+                  ->references('id_request')
+                  ->on('requests');
         });
     }
 

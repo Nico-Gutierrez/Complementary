@@ -18,11 +18,14 @@ return new class extends Migration
             $table->text('description_course');
             $table->string('acronym');
             $table->boolean('state_course');
-            $table->unsignedBigInteger('categorie_id'); // Clave foránea
+
+            $table->unsignedBigInteger('categorie_id');
+            $table->unsignedBigInteger('id_request'); // Clave foránea
 
             $table->foreign('categorie_id')
                   ->references('id_categorie')
                   ->on('categories');
+            
         });
     }
 

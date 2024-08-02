@@ -17,6 +17,18 @@ return new class extends Migration
             $table->integer('quota');
             $table->integer('code');
             $table->boolean('state_request');
+
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('teacher_id');
+
+            $table->foreign('course_id')
+                  ->references('id_course')
+                  ->on('courses');
+
+            $table->foreign('teacher_id')
+                  ->references('id_teacher')
+                  ->on('teachers');
+
         });
     }
 

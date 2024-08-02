@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('coordinations', function(Blueprint $table){
-            $table->id('id_coordination');
-            $table->integer('document_number');
-
+        Schema:: create('users', function(Blueprint $table){
+            $table->id('id_user');
+            $table->string('password');
+            $table->string('state_user');
 
             $table->unsignedBigInteger('person_id');
-
-            $table->foreign('person_id')
-            ->references('id_person')
+            $table->foreign('person_id')->references('id_person')
             ->on('peoples');
+            
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('coordinations');
+        //
     }
 };

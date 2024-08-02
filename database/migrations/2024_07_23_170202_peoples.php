@@ -21,6 +21,18 @@ return new class extends Migration
             $table->integer('document_number')->unique();
             $table->timestamp('date_birth');
             $table->string('address');
+
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('document_type_id'); // Clave foránea
+
+            $table->foreign('country_id')
+                  ->references('id_country')
+                  ->on('countries')
+                  ->onDelete('cascade');
+
+            $table->foreign('document_type_id')
+                  ->references('id_document_type')
+                  ->on('documents_type');
         });
         
     }
